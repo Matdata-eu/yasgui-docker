@@ -21,3 +21,10 @@ FROM nginxinc/nginx-unprivileged:alpine
 
 # Copy the build output to the Nginx HTML directory
 COPY --from=0 /app/build /usr/share/nginx/html/
+
+USER root
+COPY change-default-endpoint.sh /docker-entrypoint.d/
+RUN chmod +x /docker-entrypoint.d/change-default-endpoint.sh
+RUN chown 1001:0 -R /usr/share/nginx/html/
+
+USER 1001
