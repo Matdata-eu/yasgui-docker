@@ -13,7 +13,7 @@ A docker image is available on [Dockerhub](https://hub.docker.com/r/mathiasvda/y
 Example usage:
 
 ```sh
-$ docker run -p 8080:8080 /mathiasvda/yasgui
+$ docker run -p 8080:8080 mathiasvda/yasgui
 ```
 
 ## Configuration
