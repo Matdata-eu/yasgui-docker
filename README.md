@@ -18,7 +18,11 @@ $ docker run -p 8080:8080 mathiasvda/yasgui
 
 ## Configuration
 
-Wip
+You can use the environmental variable `YASGUI_DEFAULT_ENDPOINT` to set the default endpoint:
+
+```sh
+$ docker run -p 8080:8080 -e YASGUI_DEFAULT_ENDPOINT="https://jena.matdata.eu/expertise/query" mathiasvda/yasgui
+```
 
 ## LICENSE
 
