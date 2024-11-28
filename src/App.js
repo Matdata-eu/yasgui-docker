@@ -12,12 +12,7 @@ export default function App() {
        * Define these fields as plain values, or as a getter function
        */
       requestConfig: {
-        endpoint: 'https://change.to.default.endpoint/sparql',
-        //Example of using a getter function to define the headers field:
-        headers: () => ({
-          'key': 'value'
-        }),
-        method: 'POST'
+        endpoint: 'https://change.to.default.endpoint/sparql'
       },
         
       // Allow resizing of the Yasqe editor
