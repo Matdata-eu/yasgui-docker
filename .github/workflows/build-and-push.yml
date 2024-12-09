@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - ci
   release:
     types: [published]
 
@@ -41,11 +42,15 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
 
-  deploy-pages:
-    runs-on: mathiasvda/yasgui
-    steps:
+      - uses: shrink/actions-docker-extract@v3
+        id: extract
+        with:
+          image: ${{ vars.DOCKERHUB_REPO }}
+          path: /usr/share/nginx/html/.
+          destination: dist
+
       - name: Upload static files as artifact
         id: deployment
-        uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: /usr/share/nginx/html/*
+          path: dist
