@@ -40,3 +40,15 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
+
+      - name: Pull Docker image
+        run: docker pull mathiasvda/yasgui
+
+      - name: Run Docker container
+        run: docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace mathiasvda/yasgui /bin/sh -c "echo $GITHUB_WORKSPACE && mkdir public && cp -r /usr/share/nginx/html/* public"
+
+      - name: Upload to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
