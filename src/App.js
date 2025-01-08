@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import Yasgui from "@zazuko/yasgui";
 import "@zazuko/yasgui/build/yasgui.min.css";
 
+import GeoPlugin from "yasgui-geo-tg";
+Yasgui.Yasr.registerPlugin("geo", GeoPlugin);
+
 export default function App() {
   useEffect(() => {
     var config =
@@ -52,7 +55,12 @@ export default function App() {
           contentDiv.innerText = data.value.endpoint;
           source.appendChild(contentDiv);
         }
-      }
+      },
+      
+      yasr: {
+        pluginOrder: ['table', 'response', 'geo'], // Enable geo plugin alongside default table
+        defaultPlugin: 'geo',
+      },
     };
     
     const yasgui = new Yasgui(document.getElementById("yasgui"), config);
