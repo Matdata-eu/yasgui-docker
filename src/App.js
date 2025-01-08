@@ -59,7 +59,7 @@ export default function App() {
       
       yasr: {
         pluginOrder: ['table', 'response', 'geo'], // Enable geo plugin alongside default table
-        defaultPlugin: 'geo',
+        defaultPlugin: 'table',
       },
     };
     
