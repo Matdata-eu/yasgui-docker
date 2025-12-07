@@ -23,6 +23,8 @@
     -->
   <!-- YASGUI CSS -->
   <link rel="stylesheet" href="%PUBLIC_URL%/yasgui/yasgui.min.css">
+  <!-- YASGUI JavaScript - Load before React to ensure it's available -->
+  <script src="%PUBLIC_URL%/yasgui/yasgui.min.js"></script>
   <title>Yasgui</title>
 </head>
 
@@ -39,8 +41,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  <!-- YASGUI JavaScript -->
-  <script src="%PUBLIC_URL%/yasgui/yasgui.min.js"></script>
   <div id="footer">
     <small>Source code available on <a href="https://github.com/Matdata-eu/yasgui-docker">Matdata-eu/yasgui-docker</a> with
       credits to <a href="https://github.com/Matdata-eu/Yasgui">Matdata-eu/Yasgui</a>, <a href="https://github.com/zazuko/yasgui">Zazuko/Yasgui</a>, <a

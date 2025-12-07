@@ -2,13 +2,19 @@ import React, { useEffect } from "react";
 
 import GeoPlugin from "yasgui-geo-tg";
 
-// Yasgui is loaded from public/yasgui/yasgui.min.js and is available as a global variable
-const Yasgui = window.Yasgui;
-
 export default function App() {
   useEffect(() => {
+    // Yasgui is loaded from public/yasgui/yasgui.min.js and is available as a global variable
+    // The UMD build exports the constructor as window.Yasgui.default or window.Yasgui.Yasgui
+    const Yasgui = window.Yasgui?.default || window.Yasgui?.Yasgui;
+    
+    if (!Yasgui) {
+      console.error("Yasgui is not loaded yet");
+      return;
+    }
+    
     // Register the geo plugin
-    if (Yasgui && Yasgui.Yasr) {
+    if (Yasgui.Yasr) {
       Yasgui.Yasr.registerPlugin("geo", GeoPlugin);
     }
     
