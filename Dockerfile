@@ -14,6 +14,13 @@ RUN npm install git+https://github.com/Thib-G/yasgui-geo-tg.git
 # Copy the rest of the application code
 COPY . .
 
+# Download Yasgui files from npm package to public folder
+RUN mkdir -p public/yasgui && \
+    cp node_modules/@matdata/yasgui/build/yasgui.min.css public/yasgui/ && \
+    cp node_modules/@matdata/yasgui/build/yasgui.min.css.map public/yasgui/ && \
+    cp node_modules/@matdata/yasgui/build/yasgui.min.js public/yasgui/ && \
+    cp node_modules/@matdata/yasgui/build/yasgui.min.js.map public/yasgui/
+
 # Build the React app
 RUN npm run build
 

@@ -5,9 +5,11 @@ import GeoPlugin from "yasgui-geo-tg";
 export default function App() {
   useEffect(() => {
     // Yasgui is loaded from public/yasgui/yasgui.min.js and is available as a global variable
-    // The UMD build exports the constructor at window.Yasgui.default (ES6 default export)
-    // or window.Yasgui.Yasgui (named export). This handles both export patterns.
-    const Yasgui = window.Yasgui?.default || window.Yasgui?.Yasgui;
+    // The UMD build may export the constructor directly as window.Yasgui (function),
+    // or at window.Yasgui.default (ES6 default export), or window.Yasgui.Yasgui (named export)
+    const Yasgui = typeof window.Yasgui === 'function' 
+      ? window.Yasgui 
+      : (window.Yasgui?.default || window.Yasgui?.Yasgui);
     
     if (!Yasgui) {
       console.error("Failed to load Yasgui library. Please ensure yasgui.min.js is properly loaded.");
