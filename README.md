@@ -1,5 +1,7 @@
 # Docker container for Yasgui
 
+This repo is archieved and the functionality is integrated into [https://github.com/Matdata-eu/yasgui](https://github.com/Matdata-eu/yasgui)
+
 A docker image to setup a simple website with Yasgui.
 
 ## Description
