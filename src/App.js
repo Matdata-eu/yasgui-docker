@@ -9,7 +9,7 @@ export default function App() {
     const Yasgui = window.Yasgui?.default || window.Yasgui?.Yasgui;
     
     if (!Yasgui) {
-      console.error("Yasgui is not loaded yet");
+      console.error("Failed to load Yasgui library. Please ensure yasgui.min.js is properly loaded.");
       return;
     }
     
@@ -74,8 +74,8 @@ export default function App() {
       },
     };
     
-    // eslint-disable-next-line no-unused-vars
-    const yasgui = new Yasgui(document.getElementById("yasgui"), config);
+    // Initialize Yasgui instance (underscore prefix indicates intentionally unused variable)
+    const _yasgui = new Yasgui(document.getElementById("yasgui"), config);
     
     return () => {};
   }, []);
