@@ -4,7 +4,7 @@ A docker image to setup a simple website with Yasgui.
 
 ## Description
 
-This project implements a docker container for Yasgui, "Yet another SPARQL GUI". The docker container runs a react nodejs application that shows a Yasgui interface on the webpage. The flavor of Yasgui is based the [Zazuko version](https://github.com/zazuko/Yasgui).
+This project implements a docker container for Yasgui, "Yet another SPARQL GUI". The docker container runs a react nodejs application that shows a Yasgui interface on the webpage. The flavor of Yasgui is based on the [Matdata version](https://github.com/Matdata-eu/Yasgui).
 
 ## Usage
 

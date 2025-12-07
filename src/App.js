@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
-import Yasgui from "@zazuko/yasgui";
-import "@zazuko/yasgui/build/yasgui.min.css";
 
 import GeoPlugin from "yasgui-geo-tg";
-Yasgui.Yasr.registerPlugin("geo", GeoPlugin);
+
+// Yasgui is loaded from public/yasgui/yasgui.min.js and is available as a global variable
+const Yasgui = window.Yasgui;
 
 export default function App() {
   useEffect(() => {
+    // Register the geo plugin
+    if (Yasgui && Yasgui.Yasr) {
+      Yasgui.Yasr.registerPlugin("geo", GeoPlugin);
+    }
+    
     var config =
     {
       /**
@@ -63,6 +68,7 @@ export default function App() {
       },
     };
     
+    // eslint-disable-next-line no-unused-vars
     const yasgui = new Yasgui(document.getElementById("yasgui"), config);
     
     return () => {};
